@@ -27,7 +27,8 @@ function showCategory(category) {
         let newRow = document.createElement("tr");
         newRow.innerHTML = `
             <td><input type="checkbox" class="row-checkbox"></td>
-            <td>${user.id}</td>
+            
+            <td contenteditable="false">${user.id}</td>
             <td contenteditable="false">${user.name}</td>
             <td contenteditable="false">${user.email}</td>
             <td contenteditable="false">${user.password}</td>
@@ -47,11 +48,13 @@ function toggleEditUser(button, userId) {
     let nameCell = row.children[2];
     let emailCell = row.children[3];
     let passwordCell = row.children[4];
+    let idCell =row.children[1];
 
     if (button.innerText === "Edit") {
         nameCell.contentEditable = true;
         emailCell.contentEditable = true;
         passwordCell.contentEditable = true;
+        idCell.contentEditable =true;
         nameCell.focus();
         button.innerText = "Save";
     } else {
